@@ -23,9 +23,17 @@ template2 = PromptTemplate(
 
 output_parser = StrOutputParser()
 
+# prompt1 = template1.invoke({"topic": "Black Hole"})
+# result = model.invoke(prompt1)
+# result = output_parser.invoke(result)
+# prompt2 = template2.invoke({"text": result})
+# result = model.invoke(prompt2)
+# result = output_parser.invoke(result)
+
 chain = template1 | model | output_parser | template2 | model | output_parser
 
 result = chain.invoke({"topic": "Black Hole"})
+
 print(result)
 
 
